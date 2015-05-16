@@ -1,0 +1,139 @@
+{
+  "classes": [
+    {
+      "name": "Witch Doctor",
+      "order": 1,
+      "active_skills": [
+        {
+          "name": "primary",
+          "order": 1,
+          "skills": [
+            {
+              "name": "Poison Dart",
+              "runes": ["", "Splinters", "Numbing Dart", "Spined Dart", "Flaming Dart", "Snake to the Face"]
+            },
+            {
+              "name": "Corpse Spiders",
+              "runes": ["", "Leaping Spiders", "Spider Queen", "Widowmakers", "Medusa Spiders", "Blazing Spiders"]
+            },
+            {
+              "name": "Plague of Toads",
+              "runes": ["", "Explosive Toads", "Toad of Hugeness", "Rain of Toads", "Addling Toads", "Toad Affinity"]
+            },
+            {
+              "name": "Firebomb",
+              "runes": ["", "Flash Fire", "Roll the Bones", "Fire Pit", "Pyrogeist", "Ghost Bomb"]
+            }
+          ]
+        },
+        {
+          "name": "secondary",
+          "order": 2,
+          "skills": [
+            {
+              "name": "Grasp of the Dead",
+              "runes": ["", "Unbreakable Grasp", "Groping Eels", "Death Is Life", "Desperate Grasp", "Rain of Corpses"]
+            },
+            {
+              "name": "Firebats",
+              "runes": ["", "Dire Bats", "Vampire Bats", "Plague Bats", "Hungry Bats", "Cloud of Bats"]
+            },
+            {
+              "name": "Haunt",
+              "runes": ["", "Consuming Spirit", "Resentful Spirit", "Lingering Spirit", "Poisoned Spirit", "Draining Spirit"]
+            },
+            {
+              "name": "Locust Swarm",
+              "runes": ["", "Pestilence", "Devouring Swarm", "Cloud of Insects", "Diseased Swarm", "Searing Locusts"]
+            }
+          ]
+        },
+        {
+          "name": "defensive",
+          "order": 3,
+          "skills": [
+            {
+              "name": "Summon Zombie Dogs",
+              "runes": ["", "Rabid Dogs", "Final Gift", "Life Link", "Burning Dogs", "Leeching Beasts"]
+            },
+            {
+              "name": "Horrify",
+              "runes": ["", "Phobia", "Stalker", "Face of Death", "Frightening Aspect", "Ruthless Terror"]
+            },
+            {
+              "name": "Spirit Walk",
+              "runes": ["", "Jaunt", "Honored Guest", "Umbral Shock", "Severance", "Healing Journey"]
+            },
+            {
+              "name": "Hex",
+              "runes": ["", "Hedge Magic", "Jinx", "Angry Chicken", "Painful Transformation", "Unstable Form"]
+            }
+          ]
+        },
+        {
+          "name": "terror",
+          "order": 4,
+          "skills": [
+            {
+              "name": "Soul Harvest",
+              "runes": ["", "Swallow Your Soul", "Siphon", "Languish", "Soul to Waste", "Vengeful Spirit"]
+            },
+            {
+              "name": "Sacrifice",
+              "runes": ["", "Black Blood", "Next of Kin", "Pride", "For the Master", "Provoke the Pack"]
+            },
+            {
+              "name": "Mass Confusion",
+              "runes": ["", "Unstable Realm", "Devolution", "Mass Hysteria", "Paranoia", "Mass Hallucination"]
+            }
+          ]
+        },
+        {
+          "name": "decay",
+          "order": 5,
+          "skills": [
+            {
+              "name": "Zombie Charger",
+              "runes": ["", "Leperous Zombie", "Undeath", "Wave of Zombies", "Explosive Beast", "Zombie Bears"]
+            },
+            {
+              "name": "Spirit Barrage",
+              "runes": ["", "The Spirit Is Willing", "Well of Souls", "Phantasm", "Phlebotomize", "Manitou"]
+            },
+            {
+              "name": "Acid Cloud",
+              "runes": ["", "Acid Rain", "Lob Blob Bomb", "Slow Burn", "Kiss of Death", "Corpse Bomb"]
+            },
+            {
+              "name": "Wall of Zombies",
+              "runes": ["", "Barricade", "Unrelenting Grip", "Creepers", "Pile On", "Dead Rush"]
+            },
+            {
+              "name": "Piranhas",
+              "runes": ["", "Bogadile", "Zombie Piranhas", "Piranhado", "Wave of Mutilation", "Frozen Piranhas"]
+            }
+          ]
+        },
+        {
+          "name": "voodoo",
+          "order": 6,
+          "skills": [
+            {
+              "name": "Gargantuan",
+              "runes": ["", "Humongoid", "Restless Giant", "Wrathful Protector", "Big Stinker", "Bruiser"]
+            },
+            {
+              "name": "Big Bad Voodoo",
+              "runes": ["", "Jungle Drums", "Rain Dance", "Slam Dance", "Ghost Trance", "Boogie Man"]
+            },
+            {
+              "name": "Fetish Army",
+              "runes": ["", "Fetish Ambush", "Devoted Following", "Legion of Daggers", "Tiki Torches", "Head Hunters"]
+            }
+          ]
+        }
+      ],
+      "passive_skills": ["Circle of Life", "Jungle Fortitude", "Spiritual Attunement", "Gruesome Feast", "Bad Medicine", "Blood Ritual", "Zombie Handler", "Pierce the Veil", "Fetish Sycophants", "Spirit Vessel", "Rush of Essence", "Vision Quest", "Fierce Loyalty", "Grave Injustice", "Tribal Rites"]
+    }
+  ]
+}

@@ -16,9 +16,15 @@
     "angular-modal-service": "~0.6.6",
     "vex": "~2.3.2",
     "vague.js": "~0.0.6",
-    "angular-filter": "~0.5.4"
+    "angular-filter": "~0.5.4",
+    "owl.carousel": "*"
   },
   "devDependencies": {
     "foundation": "~5.5.2"
+  },
+  "overrides": {
+    "owl.carousel": {
+      "main": ["dist/owl.carousel.js"]
+    }
   }
 }

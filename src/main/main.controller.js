@@ -1,8 +1,8 @@
 'use strict';
 
 function MainCtrl($rootScope, $scope, DataService, ModalService) {
-  DataService.get('skills').then(function(data){
-    $rootScope.skills = data;
+  DataService.get('classes').then(function(data){
+    $rootScope.classData = data;
 
     DataService.get('builds/1').then(function(data){
       $rootScope.build = data;

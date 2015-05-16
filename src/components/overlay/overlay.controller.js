@@ -3,9 +3,18 @@
 function OverlayController($rootScope, $scope, close, DataService) {
   var vague;
 
-  this.setActiveSkill = function(name) {
+  $scope.setActiveSkill = this.setActiveSkill = function(name) {
     $scope.activeSkill = name;
   };
+
+  $scope.pages = {}
+
+  $scope.getRunesFromSkill = function(skill) {
+    console.log(skill.runes);
+    if (skill.name == $scope.activeSkill) {
+      return skill.runes;
+    }
+  }
 
   this.blur = function(selector) {
     vague = $(selector).Vague({

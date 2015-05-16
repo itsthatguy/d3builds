@@ -39,9 +39,18 @@ gulp.task('assets', function() {
 // all of the bower dependencies
 gulp.task('jade', function() {
   var bowerSrc = gulp.src($.mainBowerFiles(), {read: false});
+  var vendorSrc = gulp.src([
+    'bower_components/owl.carousel/dist/assets/owl.carousel.css',
+    'bower_components/owl.carousel/dist/assets/owl.theme.default.css'
+    ], {read: false});
 
   return gulp.src('src/**/*.jade')
   .pipe($.plumber())
+  .pipe($.inject(vendorSrc, {
+    name: 'head',
+    addPrefix: '.',
+    addRootSlash: false
+  }))
   .pipe($.inject(bowerSrc, {
     name: 'bower',
     addPrefix: '.',
