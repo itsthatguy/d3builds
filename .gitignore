@@ -3,4 +3,8 @@ npm-debug.log
 app/bundle.js
 build/cache/
 build/builds/
+node_modules/
+bower_components/
+dist/
+cache/
 .DS_Store
