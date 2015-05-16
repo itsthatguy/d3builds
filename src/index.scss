@@ -1,0 +1,28 @@
+@import "colors";
+@import "fonts";
+
+$body-bg: $black;
+
+$base-font-size: 75%;
+$header-font-color: white;
+
+@import "foundation";
+@import "components/**/*.scss";
+@import "main/**/*.scss";
+
+body {
+  color: white;
+  padding-top: 40px;
+
+  .exit {
+    color: #EB3B3D;
+    cursor: pointer;
+    font-family: $header-font;
+    font-size: 32px;
+    height: 32px;
+    position: fixed;
+    right: 0;
+    top: -5px;
+    width: 32px;
+  }
+}

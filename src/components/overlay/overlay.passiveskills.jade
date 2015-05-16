@@ -1,0 +1,10 @@
+.overlay
+  .scroll
+    .row
+      .small-12.columns
+        h2 Passive Skills
+
+        ul.no-bullet
+          li(ng-repeat="(key, value) in skills[build.class]" ng-if="key == 'passive'")
+            div(ng-repeat="(k, v) in value") {{v}}
+  .back(ng-click="closeModal()") &larr; back

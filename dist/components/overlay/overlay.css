@@ -1,0 +1,37 @@
+/******************************************************************************/
+@font-face {
+  font-family: "Exocet";
+  font-style: normal;
+  font-weight: normal;
+  src: url("assets/fonts/EXL_____.ttf") format("truetype"); }
+
+.overlay {
+  transition: opacity 1s ease;
+  background: rgba(21, 17, 16, 0.85);
+  bottom: 0;
+  color: #F3E6D0;
+  left: 0;
+  overflow: auto;
+  padding-bottom: 20px;
+  padding-top: 60px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  opacity: 0; }
+  .overlay h2 {
+    color: #F3E6D0; }
+  .overlay .back {
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px; }
+  .overlay .category {
+    color: #990000;
+    font-family: "Exocet"; }
+  .overlay .active {
+    color: #d7851a; }
+  .overlay ul {
+    list-style-type: none;
+    margin: 0; }

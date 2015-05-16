@@ -1,0 +1,12 @@
+.overlay
+  .scroll
+    .row
+      .small-12.columns
+        h2 Active Skills
+
+        ul
+          li(ng-repeat="(key, value) in skills[build.class]" ng-if="key != 'passive'")
+            h3.category {{key}}
+            ul(class="small-block-grid-{{value | keylength}}")
+              li(ng-repeat="(k, v) in value" ng-class="{active: k == activeSkill}") {{k}}
+  .back(ng-click="closeModal()") &larr; back

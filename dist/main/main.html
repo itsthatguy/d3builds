@@ -1,0 +1,28 @@
+
+<div ng-click="exit()" class="exit">X</div>
+<topbar></topbar>
+<div class="section">
+  <div class="row">
+    <div class="small-3 columns">
+      <p ng-click="classSelect()">{{build.class}}</p>
+    </div>
+    <div class="small-9 columns">
+      <h3>{{build.name}}</h3>
+      <p>Save this build</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="small-block-grid-2">
+        <li ng-repeat="(key, value) in build.active" ng-click="showModal('activeskills', value.skill)">
+          <skill skill-name="value.skill" rune-name="value.rune" skill-type="active" ng-model="value"></skill>
+        </li>
+      </ul>
+      <ul class="small-block-grid-4">
+        <li ng-repeat="(key, value) in build.passive" ng-click="showModal('passiveskills', value)">
+          <skill skill-name="value" skill-type="passive"></skill>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

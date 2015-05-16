@@ -1,0 +1,20 @@
+.exit(ng-click="exit()") X
+topbar
+.section
+  .row
+    .small-3.columns
+      p(ng-click="classSelect()") {{build.class}}
+    .small-9.columns
+      h3 {{build.name}}
+      p Save this build
+
+  .row
+    .small-12.columns
+      ul.small-block-grid-2
+        li(ng-repeat="(key, value) in build.active" ng-click="showModal('activeskills', value.skill)")
+          skill(skill-name='value.skill' rune-name="value.rune" skill-type="active" ng-model="value")
+
+      ul.small-block-grid-4
+        li(ng-repeat="(key, value) in build.passive" ng-click="showModal('passiveskills', value)")
+          skill(skill-name="value" skill-type="passive")
+

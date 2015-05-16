@@ -1,0 +1,12 @@
+/******************************************************************************/
+// config/_fonts.scss
+//
+// DESCRIPTION: Loading of font files and their font-stack variables.
+//
+//
+@import 'bourbon';
+
+@include font-face("Exocet", "assets/fonts/EXL_____", $file-formats: ttf);
+
+$body-font: "PFDinTextPro", sans-serif;
+$header-font: "Exocet";

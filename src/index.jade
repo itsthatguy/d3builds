@@ -1,0 +1,12 @@
+doctype html
+html(ng-app="d3builds")
+  head
+    title your app
+    link(href="./index.css" rel="stylesheet" type="text/css")
+    link(href="images/icon.png" rel="icon" type="image/png")
+  body(style="-webkit-app-region: drag")
+    div(ui-view)
+    //- bower:js
+    //- bower installed scripts will go here...
+    //- endinject
+    script(src="./main.js")

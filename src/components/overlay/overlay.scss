@@ -1,0 +1,45 @@
+@import "../../colors";
+@import "../../fonts";
+
+.overlay {
+  transition: opacity 1s ease;
+  background: rgba(#151110,.85);
+  bottom: 0;
+  color: $cream;
+  left: 0;
+  overflow: auto;
+  padding-bottom: 20px;
+  padding-top: 60px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  opacity: 0;
+
+  h2 {
+    color: $cream;
+  }
+
+  .back {
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .category {
+    color: lighten(#660000, 10%);
+    font-family: $header-font;
+  }
+
+  .active {
+    color: $orange;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
+
+}
