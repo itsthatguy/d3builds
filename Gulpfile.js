@@ -7,7 +7,8 @@ var $ = require('gulp-load-plugins')({
     'gulp-*',
     'del',
     'main-bower-files',
-    'browser-sync']
+    'browser-sync',
+    'node-webkit-builder']
 });
 
 // Swab the deck!
@@ -43,7 +44,7 @@ gulp.task('jade', function() {
   .pipe($.plumber())
   .pipe($.inject(bowerSrc, {
     name: 'bower',
-    addPrefix: '..',
+    addPrefix: '.',
     addRootSlash: false
   }))
   .pipe($.jade({pretty: true}))
@@ -71,6 +72,11 @@ gulp.task('sass', function() {
   .pipe($.browserSync.reload({stream:true}));
 });
 
+gulp.task('vendor', function() {
+  return gulp.src($.mainBowerFiles(), {base: '.'})
+  .pipe(gulp.dest('dist/'));
+});
+
 
 // run a server for development with browsersync
 gulp.task('serve', ['watch'], function() {
@@ -81,6 +87,21 @@ gulp.task('serve', ['watch'], function() {
         '/bower_components': 'bower_components'
       }
     }
+  });
+});
+
+gulp.task('build', ['default'], function() {
+
+  var nw = new $.nodeWebkitBuilder({
+      files: './dist/**/*', // use the glob format
+      version: '0.11.6',
+      platforms: ['win32', 'win64']
+  });
+
+  nw.build().then(function() {
+    console.log('DONE');
+  }).catch(function (error) {
+    console.error(error);
   });
 });
 
@@ -104,4 +125,4 @@ gulp.task('watch', ['default'], function() {
   watch('src/**/*.js', 'webpack');
 });
 
-gulp.task('default', ['clean', 'webpack', 'assets', 'sass', 'jade']);
+gulp.task('default', ['clean', 'webpack', 'assets', 'sass', 'jade', 'vendor']);

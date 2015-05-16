@@ -15,6 +15,7 @@ body {
   padding-top: 40px;
 
   .exit {
+    -webkit-app-region: no-drag;
     color: #EB3B3D;
     cursor: pointer;
     font-family: $header-font;
@@ -24,5 +25,10 @@ body {
     right: 0;
     top: -5px;
     width: 32px;
+  }
+
+  > * {
+    -webkit-app-region: no-drag;
+    cursor: inherit;
   }
 }
