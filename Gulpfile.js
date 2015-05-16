@@ -82,6 +82,13 @@ gulp.task('sass', function() {
 });
 
 gulp.task('vendor', function() {
+  var vendorSrc = [
+    'bower_components/owl.carousel/dist/assets/owl.carousel.css',
+    'bower_components/owl.carousel/dist/assets/owl.theme.default.css'];
+
+  gulp.src(vendorSrc, {base: '.'})
+  .pipe(gulp.dest('dist/'));
+
   return gulp.src($.mainBowerFiles(), {base: '.'})
   .pipe(gulp.dest('dist/'));
 });
