@@ -3,6 +3,7 @@
 import Main from './main/main';
 import Skill from './components/skill/skill';
 import Overlay from './components/overlay/overlay';
+import Builds from './components/builds/builds';
 
 angular.module('d3builds', [
   'ngAnimate',
@@ -14,6 +15,7 @@ angular.module('d3builds', [
   'angularModalService',
   'd3builds.Main',
   'd3builds.Skill',
+  'd3builds.Builds',
   'd3builds.Overlay',
   'ui.router',
   'mm.foundation'

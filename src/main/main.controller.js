@@ -1,11 +1,12 @@
 'use strict';
 
-function MainCtrl($rootScope, $scope, DataService, ModalService) {
+function MainCtrl($rootScope, $scope, DataService, BuildsFactory, ModalService) {
   DataService.get('classes').then(function(data){
     $rootScope.classData = data;
 
-    DataService.get('builds/1').then(function(data){
-      $rootScope.build = data;
+    BuildsFactory.get(1).then(function() {
+      $scope.build = BuildsFactory.build;
+      BuildsFactory.setSkill(2, 'active', 'Haunt');
     });
   });
 
@@ -28,4 +29,4 @@ function MainCtrl($rootScope, $scope, DataService, ModalService) {
   };
 }
 
-export default ['$rootScope', '$scope', 'DataService', 'ModalService', MainCtrl];
+export default ['$rootScope', '$scope', 'DataService', 'BuildsFactory', 'ModalService', MainCtrl];
