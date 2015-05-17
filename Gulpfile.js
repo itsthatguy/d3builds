@@ -89,6 +89,9 @@ gulp.task('vendor', function() {
   gulp.src(vendorSrc, {base: '.'})
   .pipe(gulp.dest('dist/'));
 
+  gulp.src('node_modules/**/*', {base: '.'})
+  .pipe(gulp.dest('dist/'));
+
   return gulp.src($.mainBowerFiles(), {base: '.'})
   .pipe(gulp.dest('dist/'));
 });

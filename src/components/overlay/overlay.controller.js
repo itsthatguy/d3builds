@@ -1,6 +1,6 @@
 'use strict';
 
-function OverlayController($rootScope, $scope, close, BuildsService, OverlayService, DataService) {
+function OverlayController($rootScope, $scope, close, BuildsService, BuildsImporterService, OverlayService, DataService) {
   var vague;
 
   $scope.setActiveSkill = function(id, name) {
@@ -40,6 +40,10 @@ function OverlayController($rootScope, $scope, close, BuildsService, OverlayServ
     }, 100);
   };
 
+  $scope.importBuild = function(formData) {
+    BuildsImporterService.importBuild(formData.url);
+  }
+
   $scope.closeModal = function(result) {
     $('.overlay').animate({
       opacity: 0,
@@ -58,4 +62,4 @@ function OverlayController($rootScope, $scope, close, BuildsService, OverlayServ
 
 }
 
-export default ['$rootScope', '$scope', 'close', 'BuildsService', 'OverlayService', 'DataService', OverlayController];
+export default ['$rootScope', '$scope', 'close', 'BuildsService', 'BuildsImporterService', 'OverlayService', 'DataService', OverlayController];

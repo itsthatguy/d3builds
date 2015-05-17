@@ -19,7 +19,6 @@ function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService
       OverlayService.setActiveSkill(type, id, name);
       modal.controller.blur('[ui-view="mainContent"]');
     });
-
   };
 
   $scope.exit = function() {

@@ -17,5 +17,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js']
+  },
+  externals: {
+    'superagent': 'superagent',
+    'cheerio': 'cheerio'
   }
 }
