@@ -1,7 +1,7 @@
 'use strict';
 
-import BuildsFactory from './builds.factory';
+import BuildsService from './builds.service';
 
 export default angular.module('d3builds.Builds', [])
-.service('BuildsFactory', BuildsFactory);
+.service('BuildsService', BuildsService);
 

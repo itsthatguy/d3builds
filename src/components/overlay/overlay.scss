@@ -20,6 +20,11 @@
     color: $cream;
   }
 
+  .icon {
+    max-width: 60px;
+    margin: 0 auto;
+  }
+
   .back {
     cursor: pointer;
     font-size: 14px;
@@ -44,6 +49,5 @@
 
   .rune {
     background: $dark-red;
-    height: 40px;
   }
 }

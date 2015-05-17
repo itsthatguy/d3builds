@@ -1,13 +1,21 @@
 'use strict';
 
-function OverlayController($rootScope, $scope, close, DataService) {
+function OverlayController($rootScope, $scope, close, BuildsService, OverlayService, DataService) {
   var vague;
 
-  $scope.setActiveSkill = this.setActiveSkill = function(name) {
-    $scope.activeSkill = name;
+  $scope.setActiveSkill = function(id, name) {
+    BuildsService.setSkill('active', id, name);
+  };
+
+  $scope.setActiveRuneForSkill = function(runeName, skillName) {
+    BuildsService.setRune(id, name);
   };
 
   $scope.pages = {}
+  $scope.build = BuildsService.build;
+
+  $scope.activeSkills = OverlayService.active;
+  $scope.passiveSkills = OverlayService.passive;
 
   $scope.getRunesFromSkill = function(skill) {
     console.log(skill.runes);
@@ -50,4 +58,4 @@ function OverlayController($rootScope, $scope, close, DataService) {
 
 }
 
-export default ['$rootScope', '$scope', 'close', 'DataService', OverlayController];
+export default ['$rootScope', '$scope', 'close', 'BuildsService', 'OverlayService', 'DataService', OverlayController];

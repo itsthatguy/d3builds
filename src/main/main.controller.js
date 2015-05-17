@@ -1,22 +1,22 @@
 'use strict';
 
-function MainCtrl($rootScope, $scope, DataService, BuildsFactory, ModalService) {
+function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService, ModalService) {
   DataService.get('classes').then(function(data){
     $rootScope.classData = data;
 
-    BuildsFactory.get(1).then(function() {
-      $scope.build = BuildsFactory.build;
-      BuildsFactory.setSkill(2, 'active', 'Haunt');
+    BuildsService.get(1).then(function() {
+      $scope.build = BuildsService.build;
+      BuildsService.setSkill(2, 'active', 'Haunt');
     });
   });
 
-  $scope.showModal = function(type, name) {
+  $scope.showModal = function(type, id, name) {
     ModalService.showModal({
-      templateUrl: "components/overlay/overlay." + type + ".html",
+      templateUrl: "components/overlay/overlay." + type + "skills.html",
       controller: "OverlayController"
     }).then(function(modal) {
-      console.log(name);
-      modal.controller.setActiveSkill(name);
+      debugger;
+      OverlayService.setActiveSkill(type, id, name);
       modal.controller.blur('[ui-view="mainContent"]');
     });
 
@@ -29,4 +29,4 @@ function MainCtrl($rootScope, $scope, DataService, BuildsFactory, ModalService) 
   };
 }
 
-export default ['$rootScope', '$scope', 'DataService', 'BuildsFactory', 'ModalService', MainCtrl];
+export default ['$rootScope', '$scope', 'DataService', 'BuildsService', 'OverlayService', 'ModalService', MainCtrl];

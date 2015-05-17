@@ -2,7 +2,7 @@
 
 var _ = require('lodash');
 
-function BuildsFactory(DataService, $filter) {
+function BuildsService(DataService, $filter) {
   return {
     setBuild: function(data) {
       return this.build = data;
@@ -13,7 +13,7 @@ function BuildsFactory(DataService, $filter) {
         return self.setBuild(data);
       });
     },
-    setSkill: function(id, type, name) {
+    setSkill: function(type, id, name) {
 
       var foo = function(el) {
         if (el.id == id) {
@@ -45,5 +45,5 @@ function BuildsFactory(DataService, $filter) {
   };
 }
 
-export default ['DataService', '$filter', BuildsFactory];
+export default ['DataService', '$filter', BuildsService];
 
