@@ -6,8 +6,10 @@ function ActiveSkillsController($scope, close, BuildsService, BuildsImporterServ
   $scope.activeSkills  = OverlayService.active;
   $scope.passiveSkills = OverlayService.passive;
 
+  $scope.currentRunes  = _.find($scope.build['active'], {id: OverlayService.currentSkillId});
+
   $scope.setActiveSkill = function(id, name) {
-    BuildsService.setSkill('active', OverlayService.currentSkill, name);
+    BuildsService.setSkill('active', OverlayService.currentSkillId, name);
   };
 
   $scope.setActiveRuneForSkill = function(runeName, skillName) {

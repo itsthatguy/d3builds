@@ -14,7 +14,7 @@ function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService
       templateUrl: "components/overlay/" + type + "skills/overlay.html",
       controller: type + "SkillsController"
     }).then(function(modal) {
-      OverlayService.setActiveSkill(type, id, name);
+      OverlayService.setCurrentSkill(type, id, name);
       OverlayService.blur('[ui-view="mainContent"]');
     });
   };

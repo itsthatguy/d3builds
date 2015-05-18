@@ -4,32 +4,32 @@
   "class": "Witch Doctor",
   "active": [
     {
-      "id": 1,
+      "id": 0,
       "skill": "Haunt",
       "rune": "Poisoned Spirit"
     },
     {
-      "id": 2,
+      "id": 1,
       "skill": "Piranhas",
       "rune": "Piranhado"
     },
     {
-      "id": 3,
+      "id": 2,
       "skill": "Spirit Walk",
       "rune": "Jaunt"
     },
     {
-      "id": 4,
+      "id": 3,
       "skill": "Hex",
       "rune": "Jinx"
     },
     {
-      "id": 5,
+      "id": 4,
       "skill": "Fetish Army",
       "rune": "Legion of Daggers"
     },
     {
-      "id": 6,
+      "id": 5,
       "skill": "Big Bad Voodoo",
       "rune": "Slam Dance"
     }

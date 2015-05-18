@@ -4,7 +4,7 @@ function PassiveSkillsController($scope, BuildsService, BuildsImporterService, O
   $scope.pages = {}
   $scope.build = BuildsService.build;
 
-  $scope.activeSkills = OverlayService.active;
+  $scope.activeSkills  = OverlayService.active;
   $scope.passiveSkills = OverlayService.passive;
 
   $scope.setActiveSkill = function(id, name) {
