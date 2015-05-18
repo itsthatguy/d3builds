@@ -1,14 +1,13 @@
 'use strict';
 
-function OverlayController($scope, BuildsService, BuildsImporterService, OverlayService) {
-  $scope.pages = {}
+function ActiveSkillsController($scope, close, BuildsService, BuildsImporterService, OverlayService) {
   $scope.build = BuildsService.build;
 
-  $scope.activeSkills = OverlayService.active;
+  $scope.activeSkills  = OverlayService.active;
   $scope.passiveSkills = OverlayService.passive;
 
   $scope.setActiveSkill = function(id, name) {
-    BuildsService.setSkill('active', id, name);
+    BuildsService.setSkill('active', OverlayService.currentSkill, name);
   };
 
   $scope.setActiveRuneForSkill = function(runeName, skillName) {
@@ -22,9 +21,9 @@ function OverlayController($scope, BuildsService, BuildsImporterService, Overlay
     }
   }
 
-  $scope.closeModal = function(result, close) {
-    OverlayService.closeModal(result, close);
+  $scope.closeModal = function(result) {
+    OverlayService.closeModal(close);
   };
 }
 
-export default ['$scope', 'BuildsService', 'BuildsImporterService', 'OverlayService', OverlayController];
+export default ['$scope', 'close', 'BuildsService', 'BuildsImporterService', 'OverlayService', ActiveSkillsController];

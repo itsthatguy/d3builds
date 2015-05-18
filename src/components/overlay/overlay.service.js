@@ -4,9 +4,9 @@ function OverlayService() {
   return {
     active: {},
     passive: {},
-    vague: '',
 
     setActiveSkill: function(type, id, name) {
+      this.currentSkill = id;
       return this[type][id] = name;
     },
 
@@ -26,14 +26,16 @@ function OverlayService() {
       }, 100);
     },
 
-    closeModal: function(result, close) {
+    closeModal: function(close) {
+      var vague = this.vague;
+
       $('.overlay').animate({
         opacity: 0,
       }, 200, function() {
-        close(result, 800);
+        close(800);
       });
 
-      this.vague.animate(0).done(function() {
+      vague.animate(0).done(function() {
         vague.unblur();
       });
     }

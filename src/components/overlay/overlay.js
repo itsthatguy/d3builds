@@ -10,6 +10,6 @@ export default angular.module('d3builds.Overlay', [
   'owl.carousel'
 ])
 .service('OverlayService', OverlayService)
+.controller('OverlayController', OverlayController)
 .controller('activeSkillsController', ActiveSkillsController)
-.controller('passiveSkillsController', PassiveSkillsController)
-.controller('OverlayController', OverlayController);
+.controller('passiveSkillsController', PassiveSkillsController);

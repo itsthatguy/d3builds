@@ -13,7 +13,7 @@ topbar
       ul.small-block-grid-2
         li(ng-repeat="(key, value) in build.active | orderBy: ['id']")
           span(ng-click="showModal('active', value.id, value.skill)")
-            skill(skill-name='value.skill' rune-name="value.rune" skill-type="active" ng-model="value")
+            skill(skill-name='value.skill' rune-name="value.rune" skill-type="active")
 
       ul.small-block-grid-4
         li(ng-repeat="(key, value) in build.passive" ng-click="showModal('passiveskills', value)")

@@ -6,7 +6,6 @@ function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService
 
     BuildsService.get(1).then(function() {
       $scope.build = BuildsService.build;
-      BuildsService.setSkill(2, 'active', 'Haunt');
     });
   });
 
@@ -15,7 +14,6 @@ function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService
       templateUrl: "components/overlay/" + type + "skills/overlay.html",
       controller: type + "SkillsController"
     }).then(function(modal) {
-      debugger;
       OverlayService.setActiveSkill(type, id, name);
       OverlayService.blur('[ui-view="mainContent"]');
     });

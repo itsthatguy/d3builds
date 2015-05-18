@@ -21,14 +21,11 @@ function BuildsService(DataService, $filter) {
         if (el.id == id) {
           el.skill = name;
           el.rune = '';
+          return el;
         }
-
-        return el;
       };
 
-      _.map(this.build[type], foo);
-
-      this.build[type]
+      return _.map(this.build[type], foo);
     },
 
     setRune: function(id, name) {
