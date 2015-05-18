@@ -7,12 +7,14 @@ function BuildsService(DataService, $filter) {
     setBuild: function(data) {
       return this.build = data;
     },
+
     get: function(id) {
       var self = this;
       return DataService.get('builds/' + id).then(function(data){
         return self.setBuild(data);
       });
     },
+
     setSkill: function(type, id, name) {
 
       var foo = function(el) {
@@ -22,12 +24,13 @@ function BuildsService(DataService, $filter) {
         }
 
         return el;
-      }
+      };
 
       _.map(this.build[type], foo);
 
       this.build[type]
     },
+
     setRune: function(id, name) {
 
       var foo = function(el) {
