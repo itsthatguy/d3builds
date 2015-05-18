@@ -7,13 +7,13 @@
           .item(ng-repeat="page in skills['active_skills'] | orderBy: order" owl-carousel-item)
             h3.category {{page.name}}
             ul(class="small-block-grid-{{page.skills | keylength}}" )
-              li.skill-choice(ng-repeat="(i, skill) in page.skills")
-                .skill-slot(ng-click="setActiveSkill(i, skill.name)" ng-class="{active: skill.name == activeSkills[currentSkillSlot]}")
+              li.skill-choice(ng-repeat="skill in page.skills")
+                .skill-slot(ng-click="setActiveSkill(page.id, skill)" ng-class="{active: skill.name == currentSkill.name}")
                   .icon: img(src="assets/images/placeholder.png")
                   .name {{skill.name}}
 
               ul.small-block-grid-6
-                li(ng-repeat="rune in currentRunes")
+                li(ng-repeat="rune in currentSkill.runes" ng-show="page.id == currentSkillPage")
                   .rune-slot(ng-click="setActiveRuneForSkill(rune.name, skill.name)")
                     .icon: img(src="assets/images/placeholder.png")
                     .name {{rune}}

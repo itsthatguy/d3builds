@@ -8,9 +8,11 @@ function ActiveSkillsController($scope, close, BuildsService, BuildsImporterServ
   $scope.passiveSkills = OverlayService.passive;
   $scope.currentSkillSlot = OverlayService.currentSkillSlot;
 
-  $scope.setActiveSkill = function(id, name) {
-    $scope.currentRunes  = _.find($scope.build['active'], {id: $scope.currentSkillSlot});
-    BuildsService.setSkill('active', $scope.currentSkillSlot, name);
+  $scope.setActiveSkill = function(pageId, skill) {
+    var skillSet = _.find($scope.skills['active_skills'], {id: pageId}).skills;
+    $scope.currentSkillPage = pageId;
+    $scope.currentSkill = _.find(skillSet, {name: skill.name});
+    BuildsService.setSkill('active', $scope.currentSkillSlot, skill.name);
   };
 
   $scope.setActiveRuneForSkill = function(runeName, skillName) {
