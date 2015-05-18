@@ -12,12 +12,12 @@ function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService
 
   $scope.showModal = function(type, id, name) {
     ModalService.showModal({
-      templateUrl: "components/overlay/overlay." + type + "skills.html",
-      controller: "OverlayController"
+      templateUrl: "components/overlay/" + type + "skills/overlay.html",
+      controller: type + "SkillsController"
     }).then(function(modal) {
       debugger;
       OverlayService.setActiveSkill(type, id, name);
-      modal.controller.blur('[ui-view="mainContent"]');
+      OverlayService.blur('[ui-view="mainContent"]');
     });
   };
 

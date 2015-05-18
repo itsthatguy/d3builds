@@ -1,65 +1,15 @@
 'use strict';
 
-function OverlayController($rootScope, $scope, close, BuildsService, BuildsImporterService, OverlayService, DataService) {
-  var vague;
-
-  $scope.setActiveSkill = function(id, name) {
-    BuildsService.setSkill('active', id, name);
-  };
-
-  $scope.setActiveRuneForSkill = function(runeName, skillName) {
-    BuildsService.setRune(id, name);
-  };
-
-  $scope.pages = {}
-  $scope.build = BuildsService.build;
-
-  $scope.activeSkills = OverlayService.active;
-  $scope.passiveSkills = OverlayService.passive;
-
-  $scope.getRunesFromSkill = function(skill) {
-    console.log(skill.runes);
-    if (skill.name == $scope.activeSkill) {
-      return skill.runes;
-    }
-  }
-
-  this.blur = function(selector) {
-    vague = $(selector).Vague({
-      intensity:      0,
-      forceSVGUrl:    false,
-      animationOptions: {
-        duration: 400,
-        easing: 'linear' // here you can use also custom jQuery easing functions
-      }
-    });
-
-    vague.animate(8);
-    $('.overlay').animate({
-      opacity: 1,
-    }, 100);
-  };
+function OverlayController($scope, close, BuildsService, BuildsImporterService, OverlayService, DataService) {
 
   $scope.importBuild = function(formData) {
     BuildsImporterService.importBuild(formData.url);
   }
 
-  $scope.closeModal = function(result) {
-    $('.overlay').animate({
-      opacity: 0,
-    }, 200, function() {
-      close(result, 800);
-    });
-
-    vague.animate(0).done(function() {
-      vague.unblur();
-    });
-  };
-
-  $scope.passive = function(el) {
-    return console.log(el);
+  $scope.closeModal = function(result, close) {
+    OverlayService.closeModal(result, close);
   };
 
 }
 
-export default ['$rootScope', '$scope', 'close', 'BuildsService', 'BuildsImporterService', 'OverlayService', 'DataService', OverlayController];
+export default ['$scope', 'close', 'BuildsService', 'BuildsImporterService', 'OverlayService', 'DataService', OverlayController];
