@@ -1,19 +1,20 @@
 'use strict';
 
-function ActiveSkillsController($scope, close, BuildsService, BuildsImporterService, OverlayService) {
+function ActiveSkillsController($scope, close, BuildsService, BuildsImporterService, SkillsService, OverlayService) {
   $scope.build = BuildsService.build;
 
+  $scope.skills        = SkillsService.getSkills(BuildsService.build.class);
   $scope.activeSkills  = OverlayService.active;
   $scope.passiveSkills = OverlayService.passive;
 
-  $scope.currentRunes  = _.find($scope.build['active'], {id: OverlayService.currentSkillId});
-
   $scope.setActiveSkill = function(id, name) {
-    BuildsService.setSkill('active', OverlayService.currentSkillId, name);
+    var currentSkillSlot = OverlayService.currentSkillSlot;
+    $scope.currentRunes  = _.find($scope.build['active'], {id: currentSkillSlot});
+    BuildsService.setSkill('active', currentSkillSlot, name);
   };
 
   $scope.setActiveRuneForSkill = function(runeName, skillName) {
-    BuildsService.setRune(id, name);
+    BuildsService.setRune(OverlayService.currentSkillSlot, runeName);
   };
 
   $scope.getRunesFromSkill = function(skill) {
@@ -28,4 +29,4 @@ function ActiveSkillsController($scope, close, BuildsService, BuildsImporterServ
   };
 }
 
-export default ['$scope', 'close', 'BuildsService', 'BuildsImporterService', 'OverlayService', ActiveSkillsController];
+export default ['$scope', 'close', 'BuildsService', 'BuildsImporterService', 'SkillsService', 'OverlayService', ActiveSkillsController];

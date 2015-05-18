@@ -1,11 +1,10 @@
 'use strict';
 
-function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService, ModalService) {
-  DataService.get('classes').then(function(data){
-    $rootScope.classData = data;
+function MainCtrl($rootScope, $scope, SkillsService, DataService, BuildsService, OverlayService, ModalService) {
+  SkillsService.get().then(function(data) {
 
-    BuildsService.get(1).then(function() {
-      $scope.build = BuildsService.build;
+    BuildsService.get(1).then(function(data) {
+      $scope.build = data;
     });
   });
 
@@ -26,4 +25,4 @@ function MainCtrl($rootScope, $scope, DataService, BuildsService, OverlayService
   };
 }
 
-export default ['$rootScope', '$scope', 'DataService', 'BuildsService', 'OverlayService', 'ModalService', MainCtrl];
+export default ['$rootScope', '$scope', 'SkillsService', 'DataService', 'BuildsService', 'OverlayService', 'ModalService', MainCtrl];

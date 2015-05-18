@@ -16,7 +16,6 @@ function BuildsService(DataService, $filter) {
     },
 
     setSkill: function(type, id, name) {
-
       var foo = function(el) {
         if (el.id == id) {
           el.skill = name;

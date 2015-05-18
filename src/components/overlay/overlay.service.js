@@ -6,7 +6,7 @@ function OverlayService() {
     passive: {},
 
     setCurrentSkill: function(type, id, name) {
-      this.currentSkillId = id;
+      this.currentSkillSlot = id;
       return this[type][id] = name;
     },
 
