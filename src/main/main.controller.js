@@ -27,11 +27,13 @@ function MainCtrl($rootScope, $scope, SkillsService, DataService, BuildsService,
   });
 
   $scope.showModal = function(type, id, name) {
+    OverlayService.setCurrentSkillSlot(type, id);
+    OverlayService.setCurrentSkill(type, id, name);
+
     ModalService.showModal({
       templateUrl: "components/overlay/" + type + "skills/overlay.html",
       controller: type + "SkillsController"
     }).then(function(modal) {
-      OverlayService.setCurrentSkill(type, id, name);
       OverlayService.blur('[ui-view="mainContent"]');
     });
   };

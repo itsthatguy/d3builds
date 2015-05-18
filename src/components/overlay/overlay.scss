@@ -47,6 +47,12 @@
     margin: 0;
   }
 
+  .skill-slot {
+    &.active {
+      color: $orange;
+    }
+  }
+
   .rune {
     background: $dark-red;
   }

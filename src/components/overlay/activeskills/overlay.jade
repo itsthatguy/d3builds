@@ -7,8 +7,8 @@
           .item(ng-repeat="page in skills['active_skills'] | orderBy: order" owl-carousel-item)
             h3.category {{page.name}}
             ul(class="small-block-grid-{{page.skills | keylength}}" )
-              li.skill-choice(ng-repeat="skill in page.skills" ng-class="{active: skill.name == activeSkills[i]}")
-                .skill-slot(ng-click="setActiveSkill(i, skill.name)")
+              li.skill-choice(ng-repeat="(i, skill) in page.skills")
+                .skill-slot(ng-click="setActiveSkill(i, skill.name)" ng-class="{active: skill.name == activeSkills[currentSkillSlot]}")
                   .icon: img(src="assets/images/placeholder.png")
                   .name {{skill.name}}
 

@@ -5,8 +5,10 @@ function OverlayService() {
     active: {},
     passive: {},
 
+    setCurrentSkillSlot: function(type, id) {
+      return this.currentSkillSlot = id;
+    },
     setCurrentSkill: function(type, id, name) {
-      this.currentSkillSlot = id;
       return this[type][id] = name;
     },
 
