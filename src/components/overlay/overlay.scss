@@ -20,11 +20,6 @@
     color: $cream;
   }
 
-  .icon {
-    max-width: 60px;
-    margin: 0 auto;
-  }
-
   .back {
     cursor: pointer;
     font-size: 14px;
@@ -38,22 +33,15 @@
     font-family: $header-font;
   }
 
-  .skill-choice.active {
-    color: $orange;
-  }
-
   ul {
     list-style-type: none;
     margin: 0;
   }
 
-  .skill-slot {
-    &.active {
-      color: $orange;
-    }
+  .button {
+    border-radius: 3px;
+    background-color: $red;
+    font-family: $header-font;
   }
 
-  .rune {
-    background: $dark-red;
-  }
 }

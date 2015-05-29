@@ -1,0 +1,9 @@
+.overlay.classes
+  .scroll
+    .row
+      .small-12.columns
+        h2 Select a Class
+        div(ng-repeat="class in classes") {{class}}
+
+  .button.accept(ng-click="closeModal()") accept
+  .button.cancel(ng-click="closeModal()") cancel

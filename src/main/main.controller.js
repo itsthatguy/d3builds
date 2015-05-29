@@ -1,38 +1,45 @@
 'use strict';
 
 function MainCtrl($rootScope, $scope, SkillsService, DataService, BuildsService, OverlayService, ModalService) {
-  $scope.build = {
-    name: "Nada",
-    class: "Your Mom",
-    active: [
-      {"id": 0, "skill": "Nothing Selected", "rune": "--"},
-      {"id": 1, "skill": "Nothing Selected", "rune": "--"},
-      {"id": 2, "skill": "Nothing Selected", "rune": "--"},
-      {"id": 3, "skill": "Nothing Selected", "rune": "--"},
-      {"id": 4, "skill": "Nothing Selected", "rune": "--"},
-      {"id": 5, "skill": "Nothing Selected", "rune": "--"}
-    ],
-    passive: [
-      {"id": 0, "skill": "Nothing Selected"},
-      {"id": 1, "skill": "Nothing Selected"},
-      {"id": 2, "skill": "Nothing Selected"},
-      {"id": 3, "skill": "Nothing Selected"}
-    ]
-  }
+  $scope.build = BuildsService.build;
 
-  SkillsService.get().then(function(data) {
+  SkillsService.all().then(function(data) {
     BuildsService.get(1).then(function(data) {
-      $scope.build = data;
+      $scope.build = BuildsService.build;
+      SkillsService.setClass(data.class);
     });
   });
 
-  $scope.showModal = function(type, id, name) {
-    OverlayService.setCurrentSkillSlot(type, id);
-    OverlayService.setCurrentSkill(type, id, name);
-
+  $scope.showClassesModal = function() {
     ModalService.showModal({
-      templateUrl: "components/overlay/" + type + "skills/overlay.html",
-      controller: type + "SkillsController"
+      templateUrl: "main/classes/overlay.html",
+      controller: "classesController"
+    }).then(function(modal) {
+      OverlayService.blur('[ui-view="mainContent"]');
+    });
+  };
+
+  $scope.openActiveSkillSlot = function(id, name) {
+    ModalService.showModal({
+      templateUrl: "main/activeskills/overlay.html",
+      controller: "ActiveSkillsController",
+      inputs: {
+        slotId: id,
+        skillName: name
+      }
+    }).then(function(modal) {
+      OverlayService.blur('[ui-view="mainContent"]');
+    });
+  };
+
+  $scope.openPassiveSkillSlot = function(id, name) {
+    ModalService.showModal({
+      templateUrl: "main/passiveskills/overlay.html",
+      controller: "PassiveSkillsController",
+      inputs: {
+        slotId: id,
+        skillName: name
+      }
     }).then(function(modal) {
       OverlayService.blur('[ui-view="mainContent"]');
     });

@@ -1,41 +1,53 @@
 'use strict';
 
 var _ = require('lodash');
+var skillsData = require('../../data/skills');
 
-function BuildsService(DataService, $filter) {
+function SkillsService(DataService) {
+  var service = {
+    all: [],
+    current: {}
+  };
+
   return {
-    setClass: function(name) {
-      this.class = name;
-    },
-
-    setSkillsData: function(data) {
-      return this.skillsData = data;
-    },
-
-    getSkills: function(className) {
-      return _.find(this.skillsData, {name: className})
-    },
-
-    get: function() {
-      var self = this;
-      return DataService.get('classes').then(function(data){
-        return self.setSkillsData(data.classes);
+    all: function() {
+      return new Promise(function(resolve) {
+        service.all = skillsData.skills;
+        return resolve(skillsData.skills);
       });
     },
 
-    setRune: function(id, name) {
+    get: function(className) {
+      var self = this;
+      return new Promise(function(resolve) {
+        self.all().then(function(data) {
+          var skills = _.where(data, {class: className});
+          return resolve(skills);
+        });
+      });
+    },
 
+    setClass: function(className) {
+      this.get(className).then(function(data) {
+        return;
+      });
+    },
+
+    getRunes: function(skillName) {
+      var skillSet = _.find(this.currentSkills.active_skills, {name: skillName});
+    },
+
+    setRune: function(id, name) {
       var foo = function(el) {
         if (el.id == id) {
           el.rune = '';
         }
 
         return el;
-      }
+      };
       _.map([], foo);
     }
   };
 }
 
-export default ['DataService', '$filter', BuildsService];
-
+export default ['DataService', SkillsService];

@@ -1,7 +1,7 @@
 'use strict';
 
 import Main from './main/main';
-import Skill from './components/skill/skill';
+import Feedme from './feedme/feedme';
 import Overlay from './components/overlay/overlay';
 import Builds from './components/builds/builds';
 
@@ -14,9 +14,10 @@ angular.module('d3builds', [
   'angular.filter',
   'angularModalService',
   'd3builds.Main',
-  'd3builds.Skill',
+  'd3builds.SkillSlot',
   'd3builds.Builds',
   'd3builds.Overlay',
+  'd3builds.Feedme',
   'ui.router',
   'mm.foundation'
 ])
@@ -25,8 +26,23 @@ angular.module('d3builds', [
 
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
   $stateProvider
+    .state('feedme', {
+      url: '/feedme',
+      abstract: true,
+      templateUrl: 'components/layouts/application.html',
+    })
+    .state('feedme.index', {
+      url: '',
+      views: {
+        mainContent: {
+          controller: 'FeedmeController',
+          templateUrl: 'feedme/feedme.html'
+        }
+      }
+    })
+
     .state('main', {
-      url: '/main',
+      url: '/',
       abstract: true,
       templateUrl: 'components/layouts/application.html',
     })
@@ -40,9 +56,9 @@ angular.module('d3builds', [
         }
       }
     })
-    .state('otherwise', {url: '/main'});
+    .state('otherwise', {url: '/'});
 
-    $urlRouterProvider.otherwise('/main');
+    $urlRouterProvider.otherwise('/');
 
 }])
 .filter('keylength', function(){

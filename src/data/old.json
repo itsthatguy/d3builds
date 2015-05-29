@@ -1,3 +1,24 @@
+
+// BARBARIAN
+// "categories": [
+//   {"order": 1, "name": "primary", "id":0},
+//   {"order": 2, "name": "secondary", "id":1},
+//   {"order": 3, "name": "defensive", "id":2},
+//   {"order": 4, "name": "might", "id":3},
+//   {"order": 5, "name": "tactics", "id":4},
+//   {"order": 6, "name": "rage", "id":5}
+// ],
+//
+// WITCH DOCTOR
+// "categories": [
+//   {"name": "primary", "order": 1, "id": 0},
+//   {"name": "secondary", "order": 2, "id": 1},
+//   {"name": "defensive", "order": 3, "id": 2},
+//   {"name": "terror", "order": 4, "id": 3},
+//   {"name": "decay", "order": 5, "id": 4},
+//   {"name": "voodoo", "order": 6, "id": 5}
+// ],
+
 // {
 //   "Barbarian": {
 //     [{

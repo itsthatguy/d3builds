@@ -44,8 +44,7 @@ gulp.task('jade', function() {
     'bower_components/owl.carousel/dist/assets/owl.theme.default.css'
     ], {read: false});
 
-  return gulp.src('src/**/*.jade')
-  .pipe($.plumber())
+  gulp.src('src/index.jade')
   .pipe($.inject(vendorSrc, {
     name: 'head',
     addPrefix: '.',
@@ -56,6 +55,12 @@ gulp.task('jade', function() {
     addPrefix: '.',
     addRootSlash: false
   }))
+  .pipe($.jade({pretty: true}))
+  .pipe(gulp.dest('dist/'))
+  .pipe($.browserSync.reload({stream:true}));
+
+  return gulp.src(['src/**/*.jade', '!src/index.jade'])
+  .pipe($.plumber())
   .pipe($.jade({pretty: true}))
   .pipe(gulp.dest('dist/'))
   .pipe($.browserSync.reload({stream:true}));
@@ -136,11 +141,8 @@ gulp.task('watch', ['default'], function() {
   }
 
   watch(['src/**/*.{png,jpg,html,json}', 'package.json'], 'assets');
-
   watch('src/**/*.scss', 'sass');
-
   watch('src/**/*.jade', 'jade');
-
   watch('src/**/*.js', 'webpack');
 });
 

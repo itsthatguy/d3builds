@@ -1,0 +1,19 @@
+.exit(ng-click="exit()") X
+.section
+  .row
+    .small-12.columns
+      ul.inline-list
+        li(ng-repeat='key in classes')
+          button(ng-click='showClassSkills(key)') {{key}}
+
+      .panel(ng-repeat="(type, skillset) in skills | groupBy: 'type'")
+        h3 {{type}}
+        .owl-stage-outer
+          owl-stage.owl-stage
+            div(ng-repeat="(categoryName, categories) in skillset | groupBy: 'category'" owl-carousel-item)
+              h4(ng-if="categoryName != 'undefined'") {{categoryName}}
+              ul.no-bullet
+                li(ng-repeat="skill in categories")
+                  h5 {{skill.name}}
+                  ul.inline-list(ng-if="type == 'active'")
+                    li(ng-repeat="(key,rune) in skill.runes track by $index") {{rune}}
