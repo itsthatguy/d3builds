@@ -3,6 +3,9 @@
 function ActiveSkillsController($scope, slotId, skillName, close, BuildsService, ImporterService, SkillsService, OverlayService) {
   $scope.build         = BuildsService.build;
 
+  $scope.slotId = slotId;
+  $scope.skillName = skillName;
+
   SkillsService.get('Witch Doctor')
   .then(function(data) {
     $scope.skills = data;
@@ -10,7 +13,7 @@ function ActiveSkillsController($scope, slotId, skillName, close, BuildsService,
   });
 
   $scope.chooseSkill = function(pageName, skill) {
-    $scope.selectedSkill = skill;
+    $scope.skillName = skill.name;
   };
 
   $scope.setActiveRuneForSkill = function(runeName, skillName) {
@@ -18,7 +21,6 @@ function ActiveSkillsController($scope, slotId, skillName, close, BuildsService,
   };
 
   $scope.getRunesFromSkill = function(skill) {
-    console.log(skill.runes);
     if (skill.name == $scope.activeSkill) {
       return skill.runes;
     }

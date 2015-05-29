@@ -11,11 +11,15 @@
               .skill-slot(ng-click="chooseSkill(category, skill)" ng-class="{active: skill.name == currentSkill.name}")
                 .icon: img(src="assets/images/placeholder.png")
                 .name {{skill.name}}
+          h4.category Runes
           span(ng-repeat="skill in page")
 
             //- use this if to determine if the rune is current or not
-            ul.small-block-grid-6(ng-show="false")
-              li(ng-repeat="runes in skill.runes") {{runes}}
+            ul.small-block-grid-6(ng-show="skill.name == skillName")
+              li(ng-repeat="runes in skill.runes")
+                .icon: img(src="assets/images/placeholder.png")
+                .name {{runes}}
+          hr
 
   .button.accept(ng-click="closeModal()") accept
   .button.cancel(ng-click="closeModal()") cancel
