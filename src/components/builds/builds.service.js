@@ -41,7 +41,7 @@ function BuildsService(DataService, $filter) {
     },
 
     setActiveSkill: function(id, name) {
-      var foo = function(el) {
+      var setSkill = function(el) {
         if (el.id == id) {
           el.skill = name;
           el.rune = '';
@@ -49,7 +49,7 @@ function BuildsService(DataService, $filter) {
         }
       };
 
-      return _.map(this.build.active, foo);
+      return _.map(this.build.active, setSkill);
     },
 
     setPassiveSkill: function(id, name) {
@@ -65,17 +65,12 @@ function BuildsService(DataService, $filter) {
     },
 
     setRune: function(id, name) {
-      var foo = function(el) {
-        if (el.id == id) {
-          el.rune = '';
-        }
-
+      var setRuneName = function(el) {
+        if (el.id == id) { el.rune = name; }
         return el;
-      }
+      };
 
-      _.map(this.build.active, foo);
-
-      this.build[type]
+      return _.map(this.build.active, setRuneName);
     }
   };
 }

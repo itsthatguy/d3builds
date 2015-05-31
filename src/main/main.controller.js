@@ -19,13 +19,14 @@ function MainCtrl($rootScope, $scope, SkillsService, DataService, BuildsService,
     });
   };
 
-  $scope.openActiveSkillSlot = function(id, name) {
+  $scope.openActiveSkillSlot = function(id, skillName, runeName) {
     ModalService.showModal({
-      templateUrl: "main/activeskills/overlay.html",
+      templateUrl: "main/activeskills/activeskills.html",
       controller: "ActiveSkillsController",
       inputs: {
         slotId: id,
-        skillName: name
+        skillName: skillName,
+        runeName: runeName
       }
     }).then(function(modal) {
       OverlayService.blur('[ui-view="mainContent"]');

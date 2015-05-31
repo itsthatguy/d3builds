@@ -1,23 +1,29 @@
+/* global _ */
 'use strict';
 
-function ActiveSkillsController($scope, slotId, skillName, close, BuildsService, ImporterService, SkillsService, OverlayService) {
-  $scope.build         = BuildsService.build;
+var categoriesData = require('../../data/categories').categories;
+
+function ActiveSkillsController($scope, slotId, skillName, runeName, close, BuildsService, ImporterService, SkillsService, OverlayService) {
+  $scope.build  = BuildsService.build;
 
   $scope.slotId = slotId;
-  $scope.skillName = skillName;
+  $scope.currentSkillName = skillName;
+  $scope.currentRuneName = runeName;
+  $scope.categories = _.where(categoriesData, {class: 'Witch Doctor'});
 
   SkillsService.get('Witch Doctor')
   .then(function(data) {
     $scope.skills = data;
+    $scope.selectCategory(_.find($scope.skills, {name: skillName}).category);
     $scope.$apply();
   });
 
   $scope.chooseSkill = function(pageName, skill) {
-    $scope.skillName = skill.name;
+    $scope.currentSkillName = skill.name;
   };
 
-  $scope.setActiveRuneForSkill = function(runeName, skillName) {
-    // BuildsService.setRune(OverlayService.currentSkillSlot, runeName);
+  $scope.setActiveRuneForSlotId = function(runeName, slotId) {
+    $scope.currentRuneName = runeName;
   };
 
   $scope.getRunesFromSkill = function(skill) {
@@ -26,9 +32,19 @@ function ActiveSkillsController($scope, slotId, skillName, close, BuildsService,
     }
   };
 
-  $scope.closeModal = function(result) {
-    OverlayService.closeModal(close, result);
+  $scope.closeModal = function(save) {
+    if (save) {
+      BuildsService.setActiveSkill(slotId, $scope.currentSkillName);
+      BuildsService.setRune(slotId, $scope.currentRuneName);
+    }
+
+    OverlayService.closeModal(close, save);
+  };
+
+  $scope.selectCategory = function(category){
+    $scope.currentCategory = category;
+    $scope.currentSkills = _.where($scope.skills, {category: category});
   };
 }
 
-export default ['$scope', 'slotId', 'skillName', 'close', 'BuildsService', 'ImporterService', 'SkillsService', 'OverlayService', ActiveSkillsController];
+export default ['$scope', 'slotId', 'skillName', 'runeName', 'close', 'BuildsService', 'ImporterService', 'SkillsService', 'OverlayService', ActiveSkillsController];

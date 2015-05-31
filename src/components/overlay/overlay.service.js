@@ -1,3 +1,4 @@
+/* global $ */
 'use strict';
 
 function OverlayService() {
@@ -6,10 +7,10 @@ function OverlayService() {
     passive: {},
 
     setCurrentSkillSlot: function(type, id) {
-      return this.currentSkillSlot = id;
+      this.currentSkillSlot = id;
     },
     setCurrentSkill: function(type, id, name) {
-      return this[type][id] = name;
+      this[type][id] = name;
     },
 
     blur: function(selector) {

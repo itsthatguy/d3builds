@@ -12,7 +12,7 @@ topbar
     .small-12.columns
       ul.small-block-grid-2
         li(ng-repeat="(key, value) in build.active | orderBy: ['id']")
-          span(ng-click="openActiveSkillSlot(value.id, value.skill)")
+          span(ng-click="openActiveSkillSlot(value.id, value.skill, value.rune)")
             skillslot(skill-name='value.skill' rune-name="value.rune" skill-type="active")
 
       ul.small-block-grid-4

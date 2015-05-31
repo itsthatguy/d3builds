@@ -18,5 +18,12 @@
 
   .rune {
     background: $dark-red;
+    &.active {
+      color: $orange !important;
+    }
+  }
+
+  dd.active {
+    color: $orange !important;
   }
 }
