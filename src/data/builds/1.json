@@ -2,32 +2,38 @@
   "name": "Zuni 2.2 Fetish",
   "url": "http://www.diablofans.com/builds/53692-zuni-2-2-fetish",
   "class": "Witch Doctor",
-  "active": {
-    "skill_1": {
+  "active": [
+    {
+      "id": 0,
       "skill": "Haunt",
       "rune": "Poisoned Spirit"
     },
-    "skill_2": {
+    {
+      "id": 1,
       "skill": "Piranhas",
       "rune": "Piranhado"
     },
-    "skill_3": {
+    {
+      "id": 2,
       "skill": "Spirit Walk",
       "rune": "Jaunt"
     },
-    "skill_4": {
+    {
+      "id": 3,
       "skill": "Hex",
       "rune": "Jinx"
     },
-    "skill_5": {
+    {
+      "id": 4,
       "skill": "Fetish Army",
       "rune": "Legion of Daggers"
     },
-    "skill_6": {
+    {
+      "id": 5,
       "skill": "Big Bad Voodoo",
       "rune": "Slam Dance"
     }
-  },
+  ],
   "passive": ["Grave Injustice", "Gruesome Feast", "Pierce the Veil", "Spirit Vessel"]
 }
 

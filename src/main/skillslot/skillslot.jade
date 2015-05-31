@@ -1,0 +1,5 @@
+.skill-slot(ng-class="skillType")
+  //- .skill-icon: img(ng-src="{{skillIcon}}")
+  .skill-name(ng-bind="skillName")
+  .rune-name(ng-show="runeName && skillType == 'active'") {{runeName}}
+  .rune-name(ng-hide="runeName || skillType == 'passive'") --

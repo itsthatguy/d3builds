@@ -3,7 +3,7 @@
 
 .overlay {
   transition: opacity 1s ease;
-  background: rgba(#151110,.85);
+  background: rgba(#151110, .55);
   bottom: 0;
   color: $cream;
   left: 0;
@@ -33,17 +33,15 @@
     font-family: $header-font;
   }
 
-  .skill-choice.active {
-    color: $orange;
-  }
-
   ul {
     list-style-type: none;
     margin: 0;
   }
 
-  .rune {
-    background: $dark-red;
-    height: 40px;
+  .button {
+    border-radius: 3px;
+    background-color: $red;
+    font-family: $header-font;
   }
+
 }

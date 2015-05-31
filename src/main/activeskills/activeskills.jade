@@ -1,0 +1,26 @@
+.overlay.activeskills
+  .scroll
+    .row
+      .small-12.columns
+        h2 Active Skills
+        //- .owl-carousel(active-skills="activeSkills" passive-skills="passiveSkills" data-options="{}")
+        dl.sub-nav
+          dt Filter:
+          dd(ng-repeat="category in categories | orderBy: 'order'" ng-class="{active: category.name == currentCategory}")
+            div(ng-click="selectCategory(category.name)"): a {{category.name}}
+        ul(class="small-block-grid-{{currentSkills.length}}" )
+          li.skill-choice(ng-repeat="skill in currentSkills")
+            .skill-slot(ng-click="chooseSkill(category, skill)" ng-class="{active: skill.name == currentSkillName}")
+              .icon: img(src="assets/images/placeholder.png")
+              .name {{skill.name}}
+        h4.category Runes
+        span(ng-repeat="skill in currentSkills")
+          //- use this if to determine if the rune is current or not
+          ul.small-block-grid-6(ng-show="skill.name == currentSkillName")
+            li.rune(ng-repeat="runeName in skill.runes" ng-click="setActiveRuneForSlotId(runeName, slotId)" ng-class="{active: runeName == currentRuneName}")
+              .icon: img(src="assets/images/placeholder.png")
+              .name {{runeName}}
+
+
+  .button.accept(ng-click="closeModal(true)") accept
+  .button.cancel(ng-click="closeModal(false)") cancel

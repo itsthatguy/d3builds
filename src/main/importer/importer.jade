@@ -1,0 +1,9 @@
+.overlay
+  .scroll
+    .row
+      .small-12.columns
+        form(ng-submit="importBuild(formData)")
+          h2 Import build
+          input(type="text" placeholder="Paste a diablofans url" ng-model='formData.url')
+          button(type="submit") Submit
+  .back(ng-click="closeModal()") &larr; back

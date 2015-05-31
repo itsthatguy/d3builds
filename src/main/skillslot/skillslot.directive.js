@@ -7,9 +7,9 @@ export default function() {
       runeName: '=',
       skillType: '@'
     },
-    templateUrl: 'components/skill/skill.html',
+    templateUrl: 'main/skillslot/skillslot.html',
     replace: true,
-    controller: 'SkillController',
+    controller: 'SkillSlotController',
     controllerAs: 'ctrl'
   };
 }

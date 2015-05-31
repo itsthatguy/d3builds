@@ -17,6 +17,8 @@
     "vex": "~2.3.2",
     "vague.js": "~0.0.6",
     "angular-filter": "~0.5.4",
+    "angular-slick": "~0.2.1",
+    "angular-carousel": "~0.3.10",
     "owl.carousel": "*"
   },
   "devDependencies": {
@@ -24,7 +26,9 @@
   },
   "overrides": {
     "owl.carousel": {
-      "main": ["dist/owl.carousel.js"]
+      "main": [
+        "dist/owl.carousel.js"
+      ]
     }
   }
 }

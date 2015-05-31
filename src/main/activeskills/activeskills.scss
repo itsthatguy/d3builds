@@ -1,0 +1,29 @@
+@import '../../colors';
+
+.overlay.activeskills {
+  .icon {
+    max-width: 60px;
+    margin: 0 auto;
+  }
+
+  .skill-choice.active {
+    color: $orange;
+  }
+
+  .skill-slot {
+    &.active {
+      color: $orange;
+    }
+  }
+
+  .rune {
+    background: $dark-red;
+    &.active {
+      color: $orange !important;
+    }
+  }
+
+  dd.active {
+    color: $orange !important;
+  }
+}
